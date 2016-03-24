@@ -44,7 +44,7 @@ var HINT_RENAISSANCE =
   * reconnectionDelay   重连支持的延迟时间
   */
 var session = new IFlyTtsSession({
-									'url'                : 'http://webapi.openspeech.cn/',
+									'url'                : 'http://webapi.openspeech.cn/ivp',
 									'reconnection'       : true,
 									'reconnectionDelay'  : 30000
 								});
@@ -107,7 +107,7 @@ function play(content, vcn){
 
 	session.start(param, content, function (err, obj)
 	{
-		var audio_url = obj.audio_url;
+		var audio_url = "http://webapi.openspeech.cn/" + obj.audio_url;
 
 		/* 若返回音频链接，则直接使用audio标签进行播放 优点：兼容性高*/
 		if( audio_url != null && audio_url != undefined )

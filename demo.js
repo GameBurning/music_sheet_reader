@@ -100,10 +100,10 @@ function play(content, vcn){
 	  */
   var appid = "56f2b1c9";
   var timestamp = current_timestamp().format("Ph:m:s");
-  var expires = 60000; 
+  var expires = 60000;
   var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + "8110b402d07b5bff");
 
-	ssb_param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid = 56f2b1c9, timestamp = " + (new Date()).toLocaleTimeString() + ", expires = 10000, ssm = 1,vcn = " + vcn, "signature" : signature, "gat" : "mp3"};
+	var param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid=" + appid + ",timestamp = " + timestamp + ", expires=" + expires, "ssm = 1,vcn = " + vcn, "signature" : signature, "gat" : "mp3"};
 
 	session.start(ssb_param, content, function (err, obj)
 	{

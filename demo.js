@@ -105,7 +105,7 @@ function play(content, vcn){
 
 	var param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid=" + appid + ",timestamp = " + timestamp + ",expires=" + expires, "signature" : signature, "gat" : "mp3"};
 
-	session.start(ssb_param, content, function (err, obj)
+	session.start(param, content, function (err, obj)
 	{
 		var audio_url = obj.audio_url;
 

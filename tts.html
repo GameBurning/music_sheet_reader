@@ -30,6 +30,7 @@
 
 		    var appid = "56f2b1c9";                              //应用APPID，在open.voicecloud.cn上申请即可获得
 		    var timestamp = new Date().toLocaleTimeString();                  //当前时间戳，例new Date().toLocaleTimeString()
+        console.log(timestamp);
             var expires = 60000;                          //签名失效时间，单位:ms，例60000
 		    //!!!为避免secretkey泄露，签名函数调用代码建议在服务器上完成
 		    var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + "8110b402d07b5bff");

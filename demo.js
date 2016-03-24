@@ -54,6 +54,40 @@ window.iaudio = null;
 var audio_state = 0;
 /***********************************************local Variables**********************************************************/
 
+
+Date.prototype.format = function(format) {
+    var o = {
+        "M+": this.getMonth() + 1,
+        // month
+        "d+": this.getDate(),
+        // day
+        "h+": this.getHours(),
+        // hour
+        "m+": this.getMinutes(),
+        // minute
+        "s+": this.getSeconds(),
+        // second
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        // quarter
+        "S": this.getMilliseconds(),
+        // AM|PM
+        "P": this.getHours() <= 12?"上午":"下午"
+    };
+    if (/(y+)/.test(format) || /(Y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    }
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+        }
+    }
+    return format;
+};
+
+function current_timestamp() {
+    return (new Date(Math.round(new Date().getTime()/1000) * 1000));
+}
+
 function play(content, vcn){
     reset();
 	/**
@@ -64,7 +98,11 @@ function play(content, vcn){
       * expires                 失效时间，服务器使用该字符串进行数字签名
       * signature 	            数字签名，MD5(appid + '&' + timestamp + '&' + expires + '&' + secret_key)
 	  */
+  var appid = "56f2b1c9";
+  var timestamp = current_timestamp().format("Ph:m:s");
+  var expires = 60000; 
   var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + "8110b402d07b5bff");
+
 	ssb_param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid = 56f2b1c9, timestamp = " + (new Date()).toLocaleTimeString() + ", expires = 10000, ssm = 1,vcn = " + vcn, "signature" : signature, "gat" : "mp3"};
 
 	session.start(ssb_param, content, function (err, obj)

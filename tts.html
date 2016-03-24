@@ -25,11 +25,45 @@
 		  * 输入文本，输出语音播放链接
 		  * @content 待合成文本(不超过4096字节)
 		  */
+      //overwrite timestamp
+      Date.prototype.format = function(format) {
+          var o = {
+              "M+": this.getMonth() + 1,
+              // month
+              "d+": this.getDate(),
+              // day
+              "h+": this.getHours(),
+              // hour
+              "m+": this.getMinutes(),
+              // minute
+              "s+": this.getSeconds(),
+              // second
+              "q+": Math.floor((this.getMonth() + 3) / 3),
+              // quarter
+              "S": this.getMilliseconds(),
+              // AM|PM
+              "P": this.getHours() <= 12?"上午":"下午"
+          };
+          if (/(y+)/.test(format) || /(Y+)/.test(format)) {
+              format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+          }
+          for (var k in o) {
+              if (new RegExp("(" + k + ")").test(format)) {
+                  format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+              }
+          }
+          return format;
+      };
+
+      function current_timestamp() {
+          return (new Date(Math.round(new Date().getTime()/1000) * 1000));
+      }
+
 		function play(content) {
 		    /***********************************************************以下签名过程需根据实际应用信息填入***************************************************/
 
 		    var appid = "56f2b1c9";                              //应用APPID，在open.voicecloud.cn上申请即可获得
-		    var timestamp = new Date().toLocaleTimeString();                  //当前时间戳，例new Date().toLocaleTimeString()
+		    var timestamp = current_timestamp().format("Ph:m:s");                //当前时间戳，例new Date().toLocaleTimeString()
         console.log(timestamp);
             var expires = 60000;                          //签名失效时间，单位:ms，例60000
 		    //!!!为避免secretkey泄露，签名函数调用代码建议在服务器上完成

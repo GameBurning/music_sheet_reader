@@ -30,7 +30,7 @@
 /***************************************************ELEMENT**************************************************************/
 var HINT_IFLYTEK = '科大讯飞成立于1999年，是中国最大的智能化语音技术提供商，其语音核心技术代表世界最高水平。2008年科大讯飞在深圳证券交易所挂牌上市';
 
-var HINT_API = 'XDDD 你最傻';
+var HINT_API = 'XDDD 你最傻, 你说谁傻';
 
 var HINT_RENAISSANCE =
 'IFLYTEK.AI enables developers to add a natural language interface to their app or device in minutes. It’s faster and more accurate than Siri, and requires no upfront investment, expertise, or training dataset.';
@@ -44,7 +44,7 @@ var HINT_RENAISSANCE =
   * reconnectionDelay   重连支持的延迟时间
   */
 var session = new IFlyTtsSession({
-									'url'                : 'http://webapi.openspeech.cn/ivp',
+									'url'                : 'http://webapi.openspeech.cn/',
 									'reconnection'       : true,
 									'reconnectionDelay'  : 30000
 								});
@@ -103,7 +103,7 @@ function play(content, vcn){
   var expires = 60000;
   var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + "8110b402d07b5bff");
 
-	var param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid=" + appid + ",timestamp = " + timestamp + ",expires=" + expires, "signature" : signature, "gat" : "mp3"};
+	var param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid=" + appid + ",timestamp = " + timestamp + ",expires=" + expires, "signature" : signature, "gat" : "mp3" ， "vcn=" + vcn};
 
 	session.start(param, content, function (err, obj)
 	{
@@ -128,9 +128,7 @@ function stop() {
     audio.pause();
 }
 
-function play_xiaoyan(){play(HINT_API, 'xiaoyan')};
 function play_xiaoqi(){play(HINT_API, 'xiaoqi')};
-function play_mary(){play(HINT_RENAISSANCE, 'mary')};
 
 /**
   * 重置音频缓存队列和播放对象

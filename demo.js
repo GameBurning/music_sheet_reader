@@ -44,7 +44,7 @@ var HINT_RENAISSANCE =
   * reconnectionDelay   重连支持的延迟时间
   */
 var session = new IFlyTtsSession({
-									'url'                : 'http://webapi.openspeech.cn/ivp',
+									'url'                : 'http://webapi.openspeech.cn/',
 									'reconnection'       : true,
 									'reconnectionDelay'  : 30000
 								});

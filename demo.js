@@ -103,7 +103,7 @@ function play(content, vcn){
   var expires = 60000;
   var signature = faultylabs.MD5(appid + '&' + timestamp + '&' + expires + '&' + "8110b402d07b5bff");
 
-	var param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid=" + appid + ",timestamp = " + timestamp + ",expires=" + expires, ", ssm = 1, vcn = " + vcn, "signature" : signature, "gat" : "mp3"};
+	var param = {"params" : "aue = speex-wb;7, ent=intp65, spd = 50, vol = 50, tte=utf8, caller.appid=" + appid + ",timestamp = " + timestamp + ",expires=" + expires + ",vnc=" + vnc, "signature" : signature, "gat" : "mp3"};
 
 	session.start(param, content, function (err, obj)
 	{

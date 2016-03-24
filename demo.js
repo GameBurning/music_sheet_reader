@@ -129,7 +129,7 @@ function stop() {
 }
 
 function play_xiaoyan(){play(HINT_API, 'xiaoyan')};
-function play_xiaoqi(){play(HINT_IFLYTEK, 'xiaoqi')};
+function play_xiaoqi(){play(HINT_API, 'xiaoqi')};
 function play_mary(){play(HINT_RENAISSANCE, 'mary')};
 
 /**

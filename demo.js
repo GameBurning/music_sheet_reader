@@ -31,7 +31,12 @@
 var HINT_IFLYTEK = '科大讯飞成立于1999年，是中国最大的智能化语音技术提供商，其语音核心技术代表世界最高水平。2008年科大讯飞在深圳证券交易所挂牌上市';
 
 // var HINT_API = '意大利语Allegretto, 第一种用英语，这样读：do， re， mi， fa， so， la， si， 第二种用中文，这样读：多，来，眯，发，缩，拉，西';
-var HINT_API = '一个升号，升号一';
+var HINT_API = '一个升号，四四拍，右手记号，p，小字二组号，八分音符,so,la,小节线，四分音符,si,re,re,mi,小节线，四分音符，re,si,附点四分音符,so，八分音符,la,小节线，四分音符,si,si,la,so,小节线，附点二分音符,la，八分音符,so,la,小节线，四分音符，
+si,re,re,mi,小节线，四分音符，re, si, 附点四分音符，so, 八分音符，la，小节线，四分音符,si,si,la,la，小节线，二分音符，so，四分休止符，反复记号，半终止线';
+
+var HINT_PPP = '右手记号，小字二组号，连线开始记号，十六分音符,do,re,mi,fa，顿音记号，四分音符,so, 连线结束记号，连线开始记号，十六分音符,do,re,mi,fa，顿音记号，四分音符,so, 连线结束记号，小结线，左手记号，小字一组号，全音符，do，
+三度音程号，四分音符，mi,so，三度音程号，四分音符，mi,so，三度音程号，四分音符，mi,so，小节线，右手记号'
+
 var HINT_RENAISSANCE =
 'IFLYTEK.AI enables developers to add a natural language interface to their app or device in minutes. It’s faster and more accurate than Siri, and requires no upfront investment, expertise, or training dataset.';
 /***************************************************ELEMENT**************************************************************/

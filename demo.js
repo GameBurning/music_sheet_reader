@@ -30,7 +30,7 @@
 /***************************************************ELEMENT**************************************************************/
 var HINT_IFLYTEK = '科大讯飞成立于1999年，是中国最大的智能化语音技术提供商，其语音核心技术代表世界最高水平。2008年科大讯飞在深圳证券交易所挂牌上市';
 
-var HINT_API = '意大利语Allegretto, 第一种用英语，这样读：do， re， mi， fa， so， la， si， 第二种用中文，这样读：多，来，眯，发，缩，拉，西';
+var HINT_API = '意大利语Allegretto,意大利语Allegretto,Allegretto,Allegretto 第一种用英语，这样读：do， re， mi， fa， so， la， si， 第二种用中文，这样读：多，来，眯，发，缩，拉，西';
 
 var HINT_RENAISSANCE =
 'IFLYTEK.AI enables developers to add a natural language interface to their app or device in minutes. It’s faster and more accurate than Siri, and requires no upfront investment, expertise, or training dataset.';

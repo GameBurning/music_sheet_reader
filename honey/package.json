@@ -1,0 +1,17 @@
+{
+  "name": "sheetreader",
+  "version": "1.0.0",
+  "description": "hahaha",
+  "main": "index.js",
+  "scripts": {
+    "test": "buzhidao"
+  },
+  "keywords": [
+    "music"
+  ],
+  "author": "XDDD & XDDD's bf",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

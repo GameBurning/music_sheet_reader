@@ -27,4 +27,21 @@ if creator.attrib['type'] == "composer":
     composer = creator.text
 print composer
 
-#- 获取乐谱谱头信息 -#
+#- 读取乐谱页及小节 -#
+p = []
+m = []
+pi = 0
+for page in root.findall('part'):
+    p.append(page)
+    temp_m = []
+    for measure in page.findall('measure'):
+        temp_m.append(measure)
+    m.append(temp_m)
+if p[0].attrib['id'] != "P1" or m[0][0].attrib["number"] != "1":
+    sys.exit("Not P1 or M1")
+
+#- 读取Tempo -#
+beat-unit = m[0][0].find('direction/direction-type/metronome/beat-unit').text
+per-minute = m[0][0].find('direction/direction-type/metronome/per-minute').text
+tempo = "曲速" + beat-unit + per-minute + "每分钟"
+print tempo

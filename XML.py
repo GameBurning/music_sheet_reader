@@ -41,7 +41,14 @@ if p[0].attrib['id'] != "P1" or m[0][0].attrib["number"] != "1":
     sys.exit("Not P1 or M1")
 
 #- 读取Tempo -#
-beat-unit = m[0][0].find('direction/direction-type/metronome/beat-unit').text
-per-minute = m[0][0].find('direction/direction-type/metronome/per-minute').text
-tempo = "曲速" + beat-unit + per-minute + "每分钟"
+beatunit = m[0][0].find('direction/direction-type/metronome/beat-unit').text
+print beatunit
+perminute = m[0][0].find('direction/direction-type/metronome/per-minute').text
+tempo = "曲速为:" + beatunit + perminute + "每分钟"
 print tempo
+
+#- 读取声部 -#
+measure_text = []
+for m_page in m:
+    for m_single in m_page:
+        

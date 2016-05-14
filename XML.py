@@ -3,7 +3,10 @@ import xml.etree.ElementTree as ET
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-Note = {'A': '拉','B': '西','C': '多','D': '來','E': '咪', 'F': '发','G': '娑'}
+note_dict = {'A': '拉','B': '西','C': '多','D': '來','E': '咪', 'F': '发',\
+'G': '娑'}
+octave_dict = {'1': '大字二组','2': '大字一组','3': '大字组','4': '小字组',\
+'5': '小字一组','6': '小字二组','7': '小字三组','8': '小字四组','9': '小字五组'}
 
 #- 读取XML文件 -#
 tree = ET.parse('Yani.xml')
@@ -66,3 +69,4 @@ m_text = []
 for m_page in m:
     m_text_temp = ""
     for m_single in m_page:
+        

@@ -63,7 +63,7 @@
       </score-part>
     </part-list>
   <part id="P1">
-    <measure number="0" implicit="yes" width="140.72">
+    <implicit="yes" width="140.72">
       <print>
         <system-layout>
           <system-margins>
